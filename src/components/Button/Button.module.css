@@ -1,0 +1,28 @@
+.standard {
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #ff5500;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.outline {
+  background-color: transparent;
+  color: #ff5500;
+  border: 1px solid #ff5500;
+}
+
+.standard:hover {
+  background-color: #ee4400;
+}
+
+.outline:hover {
+    background-color: #ff550033;
+}

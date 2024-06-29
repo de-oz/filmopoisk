@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color-scheme: light dark;
 
@@ -17,4 +17,6 @@
 
 body {
   min-height: 100vh;
+  color: #1b1f23;
+  background-color: #ededed;
 }
