@@ -1,0 +1,8 @@
+.filterPanel {
+  display: flex;
+  flex-direction: column;
+  width: 408px;
+  background-color: #fff;
+  padding: 24px;
+  gap: 20px;
+}

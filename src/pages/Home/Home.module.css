@@ -1,0 +1,12 @@
+.home {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+}

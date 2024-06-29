@@ -1,0 +1,58 @@
+.movie {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  gap: 24px;
+  padding: 24px;
+}
+
+.image {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image img {
+  width: 100px;
+  height: 120px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  max-width: 600px;
+  margin-bottom: 16px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.subheading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.subheadingLabel {
+  font-size: 14px;
+  line-height: 20px;
+  width: 90px;
+  color: #ababab;
+}
+
+.subheadingInfo {
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 600px;
+}
