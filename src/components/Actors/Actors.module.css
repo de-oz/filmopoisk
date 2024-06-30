@@ -1,0 +1,11 @@
+.heading {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}

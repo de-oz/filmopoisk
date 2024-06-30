@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Layout from './components/Layout/Layout.jsx';
-import Home from './pages/Home/Home.jsx';
 import Modal from './components/Modal.js/Modal.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
+import { Outlet } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './app/authSlice.js';
@@ -27,7 +27,7 @@ function App() {
         isLoggedIn={isAuthenticated}
         handleLogin={handleLogin}
         handleLogout={handleLogout}>
-        <Home />
+        <Outlet />
         <Modal
           isOpen={showModal && !isAuthenticated}
           onClose={() => setShowModal(false)}>

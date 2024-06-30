@@ -1,0 +1,63 @@
+.banner {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  gap: 32px;
+  padding: 24px;
+  transition: background-color 0.3s;
+}
+
+.image {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image img {
+  width: 400px;
+  height: 500px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-bottom: 32px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subheading {
+    display: flex;
+    gap: 8px;
+}
+
+.subheadingLabel {
+    font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.subheadingInfo {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.descriptionHeading {
+    line-height: 32px;
+}
+
+.descriptionInfo {
+    font-size: 16px;
+}

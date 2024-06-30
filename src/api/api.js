@@ -15,6 +15,9 @@ export const apiSlice = createApi({
         return queryString;
       },
     }),
+    getMovieById: builder.query({
+      query: (id) => `/movie/${id}`, // Dynamic URL with movie ID
+    }),
     loginUser: builder.mutation({
       query: (credentials) => ({
         url: '/login',
@@ -25,4 +28,4 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetMoviesQuery, useLoginUserMutation } = apiSlice;
+export const { useGetMoviesQuery, useGetMovieByIdQuery, useLoginUserMutation } = apiSlice;

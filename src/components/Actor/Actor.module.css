@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.image {
+  width: 160px;
+  height: 228px;
+  border-radius: 8px;
+}
+
+.name {
+  font-size: 14px;
+  line-height: 20px;
+}
