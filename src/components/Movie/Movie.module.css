@@ -4,6 +4,12 @@
   border-radius: 8px;
   gap: 24px;
   padding: 24px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.movie:hover {
+  background-color: #f8f8f8;
 }
 
 .image {
