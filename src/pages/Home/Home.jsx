@@ -6,9 +6,38 @@ import styles from './Home.module.css';
 import Search from '../../components/Search/Search';
 import useDebounce from '../../hooks/useDebounce';
 import Pagination from '../../components/Pagination/Pagination';
+import Dropdown from '../../components/Dropdown/Dropdown';
+
+const GENRES = {
+  0: 'Не выбран',
+  comedy: 'Комедия',
+  drama: 'Драма',
+  action: 'Боевик',
+  thriller: 'Триллер',
+  horror: 'Ужасы',
+  family: 'Семейный',
+  cartoon: 'Анимированный',
+  fantasy: 'Фэнтези',
+  romance: 'Романтика',
+  adventure: 'Приключения',
+  musical: 'Мьюзикл',
+  war: 'Военный',
+};
+
+const YEARS = {
+  '0': 'Не выбран',
+  '2009': '2009',
+  '2008': '2008',
+  '2007': '2007',
+  '2006': '2006',
+  '1990-2005': '1990-2005',
+  '1950-1989': '1950-1989',
+};
 
 const Home = () => {
   const [page, setPage] = useState(1);
+  const [selectedGenre, setSelectedGenre] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
   const { data, isLoading, isFetching } = useGetMoviesQuery({ page, title: debouncedSearchQuery });
@@ -20,7 +49,22 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <FilterPanel />
+      <FilterPanel
+        filters={[
+          <Dropdown
+            label="Жанр"
+            options={GENRES}
+            selectedValue={selectedGenre}
+            onChange={setSelectedGenre}
+          />,
+          <Dropdown
+            label="Год выпуска"
+            options={YEARS}
+            selectedValue={selectedYear}
+            onChange={setSelectedYear}
+          />,
+        ]}
+      />
       <div className={styles.container}>
         <Search
           query={searchQuery}

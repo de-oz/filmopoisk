@@ -1,0 +1,50 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select {
+  cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px 16px;
+  border: 1px solid #e1e3e6;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: 0;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.select:required:invalid {
+  color: #ababab;
+}
+
+.select:focus,
+.select:active {
+  border-color: #ff5500;
+}
+
+.icon {
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  transform-origin: 50% 25%;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
