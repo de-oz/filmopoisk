@@ -9,6 +9,8 @@ import Search from '../../components/Search/Search';
 import useDebounce from '../../hooks/useDebounce';
 import Pagination from '../../components/Pagination/Pagination';
 import Dropdown from '../../components/Dropdown/Dropdown';
+import Loader from '../../components/Loader/Loader.jsx';
+import NoResults from '../../components/NoResults/NoResults.jsx';
 
 const GENRES = {
   0: 'Не выбран',
@@ -77,20 +79,25 @@ const Home = () => {
           query={searchQuery}
           onQueryChange={handleSearchQuery}
         />
-        {isLoading ? (
-          'LOADING...'
-        ) : isFetching ? (
-          'FETCHING DATA...'
-        ) : (
+        {isLoading || isFetching ? (
+          <Loader />
+        ) : data?.search_result?.length > 0 ? (
           <>
             <Movies movies={data.search_result} />
-            <Pagination
-              page={page}
-              totalPages={data.total_pages}
-              onLeftClick={() => setPage((prev) => prev - 1)}
-              onRightClick={() => setPage((prev) => prev + 1)}
-            />
+            {data.total_pages > 1 && (
+              <Pagination
+                page={page}
+                totalPages={data.total_pages}
+                onLeftClick={() => setPage((prev) => prev - 1)}
+                onRightClick={() => setPage((prev) => prev + 1)}
+              />
+            )}
           </>
+        ) : (
+          <NoResults
+            heading="Фильмы не найдены"
+            caption="Измените запрос и попробуйте снова"
+          />
         )}
       </div>
     </div>
