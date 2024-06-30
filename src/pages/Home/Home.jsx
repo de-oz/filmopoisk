@@ -5,6 +5,7 @@ import FilterPanel from '../../components/FilterPanel/FilterPanel';
 import styles from './Home.module.css';
 import Search from '../../components/Search/Search';
 import useDebounce from '../../hooks/useDebounce';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -32,19 +33,12 @@ const Home = () => {
         ) : (
           <>
             <Movies movies={data.search_result} />
-            <div>
-              <button
-                onClick={() => setPage((prev) => prev - 1)}
-                disabled={page === 1}>
-                Previous
-              </button>
-              {page}
-              <button
-                onClick={() => setPage((prev) => prev + 1)}
-                disabled={page === data?.total_pages}>
-                Next
-              </button>
-            </div>
+            <Pagination
+              page={page}
+              totalPages={data.total_pages}
+              onLeftClick={() => setPage((prev) => prev - 1)}
+              onRightClick={() => setPage((prev) => prev + 1)}
+            />
           </>
         )}
       </div>
