@@ -16,6 +16,7 @@ const MovieDetails = () => {
       ) : (
         <>
           <Banner
+            id={id}
             poster={data.poster}
             title={data.title}
             rating={data.rating}

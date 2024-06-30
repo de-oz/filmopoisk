@@ -16,7 +16,7 @@ export const apiSlice = createApi({
       },
     }),
     getMovieById: builder.query({
-      query: (id) => `/movie/${id}`, // Dynamic URL with movie ID
+      query: (id) => `/movie/${id}`,
     }),
     loginUser: builder.mutation({
       query: (credentials) => ({
@@ -25,7 +25,19 @@ export const apiSlice = createApi({
         body: credentials,
       }),
     }),
+    rateMovie: builder.mutation({
+      query: ({ id, rating }) => ({
+        url: '/rateMovie',
+        method: 'POST',
+        body: { movieId: id, user_rate: rating },
+      }),
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMovieByIdQuery, useLoginUserMutation } = apiSlice;
+export const {
+  useGetMoviesQuery,
+  useGetMovieByIdQuery,
+  useLoginUserMutation,
+  useRateMovieMutation,
+} = apiSlice;

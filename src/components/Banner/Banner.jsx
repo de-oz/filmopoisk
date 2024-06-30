@@ -1,7 +1,11 @@
 import classNames from 'classnames';
 import styles from './Banner.module.css';
+import Rating from '../Rating/Rating.jsx';
+import { useSelector } from 'react-redux';
 
-const Banner = ({ poster, rating, title, genre, release_year, description }) => {
+const Banner = ({ id, poster, rating, title, genre, release_year, description }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <article className={styles.banner}>
       <div className={styles.image}>
@@ -27,10 +31,15 @@ const Banner = ({ poster, rating, title, genre, release_year, description }) => 
             <span className={styles.subheadingLabel}>Рейтинг:</span>
             <span className={styles.subheadingInfo}>{rating}</span>
           </div>
-          <span className={classNames(styles.subheadingLabel, styles.descriptionHeading)}>Описание</span>
-          <span className={classNames(styles.subheadingInfo, styles.descriptionInfo)}>{description}</span>
+          <span className={classNames(styles.subheadingLabel, styles.descriptionHeading)}>
+            Описание
+          </span>
+          <span className={classNames(styles.subheadingInfo, styles.descriptionInfo)}>
+            {description}
+          </span>
         </div>
       </div>
+      {isAuthenticated && <Rating movieId={id} />}
     </article>
   );
 };

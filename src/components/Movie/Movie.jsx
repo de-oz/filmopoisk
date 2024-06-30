@@ -1,6 +1,10 @@
 import styles from './Movie.module.css';
+import Rating from '../Rating/Rating.jsx';
+import { useSelector } from 'react-redux';
 
-const Movie = ({ poster, title, genre, release_year, description }) => {
+const Movie = ({ id, poster, title, genre, release_year, description }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <article className={styles.movie}>
       <div className={styles.image}>
@@ -28,6 +32,7 @@ const Movie = ({ poster, title, genre, release_year, description }) => {
           </div>
         </div>
       </div>
+      {isAuthenticated && <Rating movieId={id} />}
     </article>
   );
 };
