@@ -7,7 +7,13 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
   endpoints: (builder) => ({
     getMovies: builder.query({
-      query: ({ page = 1, title = '' }) => `/search?page=${page}${title ? `&title=${title}` : ''}`,
+      query: ({ page = 1, title = '', genre = '', year = '' }) => {
+        let queryString = `/search?page=${page}`;
+        if (title) queryString += `&title=${title}`;
+        if (genre) queryString += `&genre=${genre}`;
+        if (year) queryString += `&release_year=${year}`;
+        return queryString;
+      },
     }),
     loginUser: builder.mutation({
       query: (credentials) => ({

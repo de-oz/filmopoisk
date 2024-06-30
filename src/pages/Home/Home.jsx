@@ -1,5 +1,7 @@
 import { useGetMoviesQuery } from '../../api/api';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setGenre, setYear } from '../../app/querySlice.js';
 import Movies from '../../components/Movies/Movies';
 import FilterPanel from '../../components/FilterPanel/FilterPanel';
 import styles from './Home.module.css';
@@ -35,12 +37,17 @@ const YEARS = {
 };
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { genre, year } = useSelector((state) => state.query);
   const [page, setPage] = useState(1);
-  const [selectedGenre, setSelectedGenre] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
-  const { data, isLoading, isFetching } = useGetMoviesQuery({ page, title: debouncedSearchQuery });
+  const { data, isLoading, isFetching } = useGetMoviesQuery({
+    page,
+    title: debouncedSearchQuery,
+    genre,
+    year,
+  });
 
   const handleSearchQuery = (query) => {
     setSearchQuery(query);
@@ -54,14 +61,14 @@ const Home = () => {
           <Dropdown
             label="Жанр"
             options={GENRES}
-            selectedValue={selectedGenre}
-            onChange={setSelectedGenre}
+            selectedValue={genre}
+            onChange={(e) => dispatch(setGenre(e.target.value !== '0' && e.target.value))}
           />,
           <Dropdown
             label="Год выпуска"
             options={YEARS}
-            selectedValue={selectedYear}
-            onChange={setSelectedYear}
+            selectedValue={year}
+            onChange={(e) => dispatch(setYear(e.target.value !== '0' && e.target.value))}
           />,
         ]}
       />

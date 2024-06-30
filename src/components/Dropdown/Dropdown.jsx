@@ -12,7 +12,7 @@ const Dropdown = ({ label, options, selectedValue = '', onChange }) => {
         <select
           required
           value={selectedValue}
-          onChange={(e) => (onChange(e.target.value), setIsOpen(false))}
+          onChange={(e) => (onChange(e), setIsOpen(false))}
           onFocus={() => setIsOpen(true)}
           onBlur={() => setIsOpen(false)}
           className={styles.select}>
