@@ -1,0 +1,58 @@
+/* LoginForm.module.css */
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  width: 344px;
+}
+
+.heading {
+  font-weight: 600;
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.inputGroup {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.asterisk {
+  color: red;
+  margin-left: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e1e3e6;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: 0;
+  line-height: 16px;
+  transition: border-color 0.2s;
+}
+
+.input:hover {
+    border-color: #ced2d6;
+}
+
+.input:focus,
+.input:active {
+    border-color: #ff5500;
+}
+
+.btnGroup {
+  display: flex;
+  margin-top: 8px;
+  gap: 8px;
+}

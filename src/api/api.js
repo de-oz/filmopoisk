@@ -9,7 +9,14 @@ export const apiSlice = createApi({
     getMovies: builder.query({
       query: ({ page = 1, title = '' }) => `/search?page=${page}${title ? `&title=${title}` : ''}`,
     }),
+    loginUser: builder.mutation({
+      query: (credentials) => ({
+        url: '/login',
+        method: 'POST',
+        body: credentials,
+      }),
+    }),
   }),
 });
 
-export const { useGetMoviesQuery } = apiSlice;
+export const { useGetMoviesQuery, useLoginUserMutation } = apiSlice;

@@ -1,10 +1,30 @@
 .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .main {
-    flex: 1;
-    padding: 20px 32px;
+  flex: 1;
+  padding: 20px 32px;
+}
+
+.loggedin {
+  display: flex;
+  gap: 16px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }
